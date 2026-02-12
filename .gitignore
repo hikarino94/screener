@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+venv/
+.venv/
+
+# 環境変数
+.env
+
+# データ
+data/pdfs/
+data/cache/
+data/screener.db
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Debug scripts
+debug_*.py
+check_*.py
+test_sync_data.py
+verify_imports.py
