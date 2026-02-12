@@ -87,6 +87,7 @@ class JQuantsClient:
         code: Optional[str] = None,
         from_date: Optional[date] = None,
         to_date: Optional[date] = None,
+        date: Optional[date] = None,  # 追加: 指定日全銘柄
     ) -> pd.DataFrame:
         """株価四本値を取得"""
         params = {}
@@ -96,6 +97,8 @@ class JQuantsClient:
             params["from"] = from_date.strftime("%Y%m%d")
         if to_date:
             params["to"] = to_date.strftime("%Y%m%d")
+        if date:
+            params["date"] = date.strftime("%Y%m%d")
 
         data = self._get("/equities/bars/daily", params)
         items = data.get("equities_bars_daily") or data.get("data") or []
@@ -113,6 +116,7 @@ class JQuantsClient:
         code: Optional[str] = None,
         from_date: Optional[date] = None,
         to_date: Optional[date] = None,
+        date: Optional[date] = None,  # 追加: 指定日全銘柄
     ) -> pd.DataFrame:
         """財務サマリを取得"""
         params = {}
@@ -122,6 +126,8 @@ class JQuantsClient:
             params["from"] = from_date.strftime("%Y%m%d")
         if to_date:
             params["to"] = to_date.strftime("%Y%m%d")
+        if date:
+            params["date"] = date.strftime("%Y%m%d")
 
         data = self._get("/fins/summary", params)
         items = data.get("fins_summary") or data.get("data") or []
